@@ -11,6 +11,13 @@ Main Contributors:
 * [MrWhiteGoat](https://github.com/MrWhiteGoat)
 * [Capuno](https://github.com/Capuno)
 
+Another cool version (god bless GPL v3):
+
+[Source](https://github.com/GustavoAC/Lander)
+
+* [GustavoAC](https://github.com/GustavoAC)
+* [thiagocesarm](https://github.com/thiagocesarm)
+
 
 ## DEPENDENCIES
 > `libncurses5-dev`, `g++`, `libncursesw5-dev`
