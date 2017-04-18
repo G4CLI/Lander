@@ -11,7 +11,7 @@ Main Contributors:
 * [MrWhiteGoat](https://github.com/MrWhiteGoat)
 * [Capuno](https://github.com/Capuno)
 
-Another cool version (god bless GPL v3):
+Another cool version using a BeagleBone Black as a controller (god bless GPL v3):
 
 [Source](https://github.com/GustavoAC/Lander)
 
