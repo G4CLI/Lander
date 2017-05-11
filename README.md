@@ -30,11 +30,31 @@ Arch & based | `sudo pacman -S gcc`
 
 ## INSTALLATION
 
+### Plan A: Automatic
+
+The script is still under development.
+
 ```bash
-git clone https://github.com/Capuno/Lander.git
-cd Lander
-make
-./lander_game
+$ curl https://raw.githubusercontent.com/Capuno/Lander/master/autoInstall.sh | bash
+```
+
+### Plan B: Manual
+
+After installing the [Dependencies](https://github.com/Capuno/Lander#dependencies)
+
+```bash
+$ git clone https://github.com/Capuno/Lander.git
+$ cd Lander
+$ make
+$ ./lander_game
+```
+
+### Plan C: Binary only (Not recommended)
+
+```bash
+$ wget https://github.com/Capuno/Lander/releases/download/v1.0.0/lander_game
+$ chmod +x lander_game
+$ ./lander_game
 ```
 
 ## CONTROLS
