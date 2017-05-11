@@ -22,7 +22,7 @@ if [[ $distro == *"debian" || $distro == *"ubuntu" || $distro == *"mint" ]]; the
 	function ldrInstallDependencies(){
 		function ldrInstallPackage(){
 			ldrPackageName=$1
-			sudo apt install $ldrPackageName > logs/ldrInstallDependencies_stdout.txt 2> logs/ldrInstallDependencies_stderr.txt
+			sudo apt -y install $ldrPackageName > logs/ldrInstallDependencies_stdout.txt 2> logs/ldrInstallDependencies_stderr.txt
 			if [[ $? > 0 ]]; then
 				echo "[${red}${bold}X${normal}] Installation for packege '$ldrPackageName' failed, check file logs/ldrInstallDependencies_stderr.txt for more information."
 				exit 1
@@ -38,7 +38,7 @@ if [[ $distro == *"debian" || $distro == *"ubuntu" || $distro == *"mint" ]]; the
 		ldrGCC=$?
 		if [[ $ldrGCC -eq 127 ]]; then
 			if $ldrMode; then
-				echo "[${red}${bold}X${normal}] GCC not found, do you want to install it using command 'sudo apt install gcc'? [Y/N]"
+				echo "[${red}${bold}X${normal}] GCC not found, do you want to install it using command 'sudo apt -y install gcc'? [Y/N]"
 				read ldrAnswer < /dev/tty
 				if [[ ${ldrAnswer,,} == "y" ]]; then
 					ldrInstallPackage "gcc"
@@ -76,7 +76,7 @@ if [[ $distro == *"debian" || $distro == *"ubuntu" || $distro == *"mint" ]]; the
 			echo "[${green}${bold}O${normal}] Package 'libncurses5-dev' is already installed!"
 		else
 			if $ldrMode; then
-				echo "[${red}${bold}X${normal}] libncurses5-dev not found, do you want to install it using command 'sudo apt install libncurses5-dev'? [Y/N]"
+				echo "[${red}${bold}X${normal}] libncurses5-dev not found, do you want to install it using command 'sudo apt -y install libncurses5-dev'? [Y/N]"
 				read ldrAnswer < /dev/tty
 				if [[ ${ldrAnswer,,} == "y" ]]; then
 					ldrInstallPackage "libncurses5-dev"
@@ -104,7 +104,7 @@ if [[ $distro == *"debian" || $distro == *"ubuntu" || $distro == *"mint" ]]; the
 			echo "[${green}${bold}O${normal}] Package 'libncursesw5-dev' is already installed!"
 		else
 			if $ldrMode; then
-				echo "[${red}${bold}X${normal}] libncursesw5-dev not found, do you want to install it using command 'sudo apt install libncursesw5-dev'? [Y/N]"
+				echo "[${red}${bold}X${normal}] libncursesw5-dev not found, do you want to install it using command 'sudo apt -y install libncursesw5-dev'? [Y/N]"
 				read ldrAnswer < /dev/tty
 				if [[ ${ldrAnswer,,} == "y" ]]; then
 					ldrInstallPackage "libncursesw5-dev"
