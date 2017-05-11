@@ -171,9 +171,18 @@ fi
 
 function ldrDlCompSauce(){
 	if [[ ! $(ls | grep lander) ]]; then
-		git clone https://github.com/Capuno/Lander.git lander
+		echo "[${green}${bold}O${normal}] Downloading source with git, please wait."
+		git clone https://github.com/Capuno/Lander.git lander &> /dev/null
+		if [[ $? -eq 1 ]]; then
+			echo "[${red}${bold}X${normal}] Couldn't get source with git, stopping installation."
+			exit 1
+		fi
 		cd lander
-		make
+		echo "[${green}${bold}O${normal}] Compiling source with GCC, please wait."
+		make &> /dev/null
+		if [[ $? -eq 1 ]]; then
+			echo "[${red}${bold}X${normal}] Couldn't compile source, stopping installation."
+		fi
 	else
 		echo -e "[${red}${bold}X${normal}] There is a folder named 'lander' in the current directory\n    please move it, delete it or change directory."
 	fi
@@ -199,5 +208,7 @@ ldrInstallDependencies
 echo -e "\n========= ${bold}DL+COMPILE SAUCE${normal} ========="
 
 ldrDlCompSauce
+
+echo -e "\n========================================\n"
 
 rm -rf ldrLogs
