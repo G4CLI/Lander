@@ -34,12 +34,12 @@ if [[ $distro == *"debian" || $distro == *"ubuntu" || $distro == *"mint" ]]; the
 		# -------------------------- GCC --------------------------
 
 		echo "[${yellow}${bold}?${normal}] Checking GCC"
-		if command gcc 2>/dev/null; then
+		if ! command gcc 2>/dev/null; then
 			if $ldrMode; then
-				echo "[${red}${bold}X${normal}] GCC not found, do you want to install it using command 'sudo apt install g++'? [Y/N]"
+				echo "[${red}${bold}X${normal}] GCC not found, do you want to install it using command 'sudo apt install gcc'? [Y/N]"
 				read ldrAnswer
 				if [[ ${ldrAnswer,,} == "y" ]]; then
-					ldrInstallPackage "g++"
+					ldrInstallPackage "gcc"
 				elif [[ ${ldrAnswer,,} == "n" ]]; then
 					echo "[${red}${bold}X${normal}] Stopping script, couldn't install dependencies."
 					exit 1
@@ -48,15 +48,15 @@ if [[ $distro == *"debian" || $distro == *"ubuntu" || $distro == *"mint" ]]; the
 					exit 1
 				fi
 			elif !$ldrMode; then
-				ldrInstallPackage "g++"
+				ldrInstallPackage "gcc"
 			else
 				echo "[${red}${bold}X${normal}] Couldn't check install mode, stopping installation."
 				exit 1
 			fi
-		elif ! command gcc 2> /dev/null; then
-			echo "[${green}${bold}O${normal}] Package 'g++' is already installed!"
+		elif command gcc 2> /dev/null; then
+			echo "[${green}${bold}O${normal}] Package 'gcc' is already installed!"
 		else
-			echo "[${red}${bold}X${normal}] Couldn't check dependency 'g++', stopping installation."
+			echo "[${red}${bold}X${normal}] Couldn't check dependency 'gcc', stopping installation."
 			exit 1
 		fi
 
