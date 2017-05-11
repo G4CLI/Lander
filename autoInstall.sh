@@ -34,7 +34,7 @@ if [[ $distro == *"debian" || $distro == *"ubuntu" || $distro == *"mint" ]]; the
 		# -------------------------- GCC --------------------------
 
 		echo "[${yellow}${bold}?${normal}] Checking GCC"
-		gcc --version > /dev/null
+		gcc --version &> /dev/null
 		ldrGCC=$?
 		if [[ $ldrGCC -eq 1 ]]; then
 			if $ldrMode; then
