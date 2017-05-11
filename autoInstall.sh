@@ -31,6 +31,41 @@ if [[ $distro == *"debian" || $distro == *"ubuntu" || $distro == *"mint" ]]; the
 			fi
 		}
 
+		# ------------------------- MAKE --------------------------
+
+		echo "[${yellow}${bold}?${normal}] Checking GNU Make"
+		make --version &> /dev/null
+		ldrMAKE=$?
+		if [[ $ldrMAKE -eq 127 ]]; then
+			if $ldrMode; then
+				echo "[${red}${bold}X${normal}] GNU Make not found, do you want to install it using command 'sudo apt -y install make'? [Y/N]"
+				read ldrAnswer < /dev/tty
+				if [[ ${ldrAnswer,,} == "y" ]]; then
+					echo "[${green}${bold}O${normal}] Installing package 'make', please wait, this may take some time."
+					ldrInstallPackage "make"
+				elif [[ ${ldrAnswer,,} == "n" ]]; then
+					echo "[${red}${bold}X${normal}] Stopping script, couldn't install dependencies."
+					exit 1
+				else
+					echo "[${red}${bold}X${normal}] Invalid argument, couldn't install dependencies."
+					exit 1
+				fi
+			elif !$ldrMode; then
+				echo "[${green}${bold}O${normal}] Installing package 'make', please wait, this may take some time."
+				ldrInstallPackage "make"
+			else
+				echo "[${red}${bold}X${normal}] Couldn't check install mode, stopping installation."
+				exit 1
+			fi
+		elif [[ $ldrMAKE -eq 0 ]]; then
+			echo "[${green}${bold}O${normal}] Package 'make' is already installed!"
+		else
+			echo "[${red}${bold}X${normal}] Couldn't check dependency 'make', stopping installation."
+			exit 1
+		fi
+
+		# ---------------------------------------------------------
+
 		# -------------------------- GIT --------------------------
 
 		echo "[${yellow}${bold}?${normal}] Checking GIT"
