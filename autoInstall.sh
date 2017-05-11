@@ -22,9 +22,9 @@ if [[ $distro == *"debian" || $distro == *"ubuntu" || $distro == *"mint" ]]; the
 	function ldrInstallDependencies(){
 		function ldrInstallPackage(){
 			ldrPackageName=$1
-			sudo apt -y install $ldrPackageName > logs/ldrInstallDependencies_stdout.txt 2> logs/ldrInstallDependencies_stderr.txt
+			sudo apt -y install $ldrPackageName > ldrLogs/ldrInstallDependencies_stdout.txt 2> ldrLogs/ldrInstallDependencies_stderr.txt
 			if [[ $? > 0 ]]; then
-				echo "[${red}${bold}X${normal}] Installation for packege '$ldrPackageName' failed, check file logs/ldrInstallDependencies_stderr.txt for more information."
+				echo "[${red}${bold}X${normal}] Installation for packege '$ldrPackageName' failed, check file ldrLogs/ldrInstallDependencies_stderr.txt for more information."
 				exit 1
 			else
 				echo "[${green}${bold}O${normal}] Successfully installed package '$ldrPackageName'"
@@ -209,6 +209,10 @@ echo -e "\n========= ${bold}DL+COMPILE SAUCE${normal} ========="
 
 ldrDlCompSauce
 
-echo -e "\n========================================\n"
+echo -e "\n====================================\n"
+
+echo "[${green}${bold}O${normal}] Lander is ready to be played! type 'lander-game' to start!"
 
 rm -rf ldrLogs
+
+exit 0
