@@ -39,7 +39,7 @@ if [[ $distro == *"debian" || $distro == *"ubuntu" || $distro == *"mint" ]]; the
 		if [[ $ldrGCC -eq 127 ]]; then
 			if $ldrMode; then
 				echo "[${red}${bold}X${normal}] GCC not found, do you want to install it using command 'sudo apt install gcc'? [Y/N]"
-				read ldrAnswer
+				read ldrAnswer < /dev/tty
 				if [[ ${ldrAnswer,,} == "y" ]]; then
 					ldrInstallPackage "gcc"
 				elif [[ ${ldrAnswer,,} == "n" ]]; then
@@ -77,7 +77,7 @@ if [[ $distro == *"debian" || $distro == *"ubuntu" || $distro == *"mint" ]]; the
 		else
 			if $ldrMode; then
 				echo "[${red}${bold}X${normal}] libncurses5-dev not found, do you want to install it using command 'sudo apt install libncurses5-dev'? [Y/N]"
-				read ldrAnswer
+				read ldrAnswer < /dev/tty
 				if [[ ${ldrAnswer,,} == "y" ]]; then
 					ldrInstallPackage "libncurses5-dev"
 				elif [[ ${ldrAnswer,,} == "n" ]]; then
@@ -105,7 +105,7 @@ if [[ $distro == *"debian" || $distro == *"ubuntu" || $distro == *"mint" ]]; the
 		else
 			if $ldrMode; then
 				echo "[${red}${bold}X${normal}] libncursesw5-dev not found, do you want to install it using command 'sudo apt install libncursesw5-dev'? [Y/N]"
-				read ldrAnswer
+				read ldrAnswer < /dev/tty
 				if [[ ${ldrAnswer,,} == "y" ]]; then
 					ldrInstallPackage "libncursesw5-dev"
 				elif [[ ${ldrAnswer,,} == "n" ]]; then
@@ -130,5 +130,6 @@ fi
 
 mkdir logs
 ldrMode=true
+clear
 ldrInstallDependencies
 rm -rf logs
