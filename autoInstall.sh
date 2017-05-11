@@ -34,7 +34,9 @@ if [[ $distro == *"debian" || $distro == *"ubuntu" || $distro == *"mint" ]]; the
 		# -------------------------- GCC --------------------------
 
 		echo "[${yellow}${bold}?${normal}] Checking GCC"
-		if ! command gcc 2>/dev/null; then
+		gcc --version > /dev/null
+		ldrGCC=$?
+		if [[ $ldrGCC -eq 1 ]]; then
 			if $ldrMode; then
 				echo "[${red}${bold}X${normal}] GCC not found, do you want to install it using command 'sudo apt install gcc'? [Y/N]"
 				read ldrAnswer
@@ -53,7 +55,7 @@ if [[ $distro == *"debian" || $distro == *"ubuntu" || $distro == *"mint" ]]; the
 				echo "[${red}${bold}X${normal}] Couldn't check install mode, stopping installation."
 				exit 1
 			fi
-		elif command gcc 2> /dev/null; then
+		elif [[ $ldrGCC -eq 0 ]]; then
 			echo "[${green}${bold}O${normal}] Package 'gcc' is already installed!"
 		else
 			echo "[${red}${bold}X${normal}] Couldn't check dependency 'gcc', stopping installation."
@@ -63,7 +65,7 @@ if [[ $distro == *"debian" || $distro == *"ubuntu" || $distro == *"mint" ]]; the
 		# ---------------------------------------------------------
 
 
-		echo "[${green}${bold}O${normal}] Updating locate database, sudo needed."
+		echo "[${green}${bold}O${normal}] Updating locate database, sudo needed. [CTRL+C to skip]"
 		sudo updatedb
 
 
@@ -126,5 +128,7 @@ if [[ $distro == *"debian" || $distro == *"ubuntu" || $distro == *"mint" ]]; the
 	}
 fi
 
+mkdir logs
 ldrMode=true
 ldrInstallDependencies
+rm -rf logs
