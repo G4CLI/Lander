@@ -211,7 +211,7 @@ ldrDlCompSauce
 
 echo -e "\n====================================\n"
 
-echo -e "[${green}${bold}O${normal}] Lander is ready to be played!\n    type './lander-game' inside ${pwd}/lander to start!"
+echo -e "[${green}${bold}O${normal}] Lander is ready to be played!\n    type './lander-game' inside $(pwd)/lander to start!"
 
 rm -rf ldrLogs
 
