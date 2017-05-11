@@ -36,7 +36,7 @@ if [[ $distro == *"debian" || $distro == *"ubuntu" || $distro == *"mint" ]]; the
 		echo "[${yellow}${bold}?${normal}] Checking GCC"
 		gcc --version &> /dev/null
 		ldrGCC=$?
-		if [[ $ldrGCC -eq 1 ]]; then
+		if [[ $ldrGCC -eq 127 ]]; then
 			if $ldrMode; then
 				echo "[${red}${bold}X${normal}] GCC not found, do you want to install it using command 'sudo apt install gcc'? [Y/N]"
 				read ldrAnswer
