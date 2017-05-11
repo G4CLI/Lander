@@ -41,8 +41,8 @@ if [[ $distro == *"debian" || $distro == *"ubuntu" || $distro == *"mint" ]]; the
 				echo "[${red}${bold}X${normal}] GIT not found, do you want to install it using command 'sudo apt -y install git'? [Y/N]"
 				read ldrAnswer < /dev/tty
 				if [[ ${ldrAnswer,,} == "y" ]]; then
-					ldrInstallPackage "git"
 					echo "[${green}${bold}O${normal}] Installing package 'git', please wait, this may take some time."
+					ldrInstallPackage "git"
 				elif [[ ${ldrAnswer,,} == "n" ]]; then
 					echo "[${red}${bold}X${normal}] Stopping script, couldn't install dependencies."
 					exit 1
@@ -51,8 +51,8 @@ if [[ $distro == *"debian" || $distro == *"ubuntu" || $distro == *"mint" ]]; the
 					exit 1
 				fi
 			elif !$ldrMode; then
-				ldrInstallPackage "git"
 				echo "[${green}${bold}O${normal}] Installing package 'git', please wait, this may take some time."
+				ldrInstallPackage "git"
 			else
 				echo "[${red}${bold}X${normal}] Couldn't check install mode, stopping installation."
 				exit 1
@@ -76,8 +76,8 @@ if [[ $distro == *"debian" || $distro == *"ubuntu" || $distro == *"mint" ]]; the
 				echo "[${red}${bold}X${normal}] GCC not found, do you want to install it using command 'sudo apt -y install gcc'? [Y/N]"
 				read ldrAnswer < /dev/tty
 				if [[ ${ldrAnswer,,} == "y" ]]; then
-					ldrInstallPackage "gcc"
 					echo "[${green}${bold}O${normal}] Installing package 'gcc', please wait, this may take some time."
+					ldrInstallPackage "gcc"
 				elif [[ ${ldrAnswer,,} == "n" ]]; then
 					echo "[${red}${bold}X${normal}] Stopping script, couldn't install dependencies."
 					exit 1
@@ -86,8 +86,8 @@ if [[ $distro == *"debian" || $distro == *"ubuntu" || $distro == *"mint" ]]; the
 					exit 1
 				fi
 			elif !$ldrMode; then
-				ldrInstallPackage "gcc"
 				echo "[${green}${bold}O${normal}] Installing package 'gcc', please wait, this may take some time."
+				ldrInstallPackage "gcc"
 			else
 				echo "[${red}${bold}X${normal}] Couldn't check install mode, stopping installation."
 				exit 1
@@ -116,8 +116,8 @@ if [[ $distro == *"debian" || $distro == *"ubuntu" || $distro == *"mint" ]]; the
 				echo "[${red}${bold}X${normal}] libncurses5-dev not found, do you want to install it using command 'sudo apt -y install libncurses5-dev'? [Y/N]"
 				read ldrAnswer < /dev/tty
 				if [[ ${ldrAnswer,,} == "y" ]]; then
-					ldrInstallPackage "libncurses5-dev"
 					echo "[${green}${bold}O${normal}] Installing package 'libncurses5-dev', please wait, this may take some time."
+					ldrInstallPackage "libncurses5-dev"
 				elif [[ ${ldrAnswer,,} == "n" ]]; then
 					echo "[${red}${bold}X${normal}] Stopping script, couldn't install dependencies."
 					exit 1
@@ -126,8 +126,8 @@ if [[ $distro == *"debian" || $distro == *"ubuntu" || $distro == *"mint" ]]; the
 					exit 1
 				fi
 			elif !$ldrMode; then
-				ldrInstallPackage "libncurses5-dev"
 				echo "[${green}${bold}O${normal}] Installing package 'libncurses5-dev', please wait, this may take some time."
+				ldrInstallPackage "libncurses5-dev"
 			else
 				echo "[${red}${bold}X${normal}] Couldn't check install mode, stopping installation."
 				exit 1
@@ -146,8 +146,8 @@ if [[ $distro == *"debian" || $distro == *"ubuntu" || $distro == *"mint" ]]; the
 				echo "[${red}${bold}X${normal}] libncursesw5-dev not found, do you want to install it using command 'sudo apt -y install libncursesw5-dev'? [Y/N]"
 				read ldrAnswer < /dev/tty
 				if [[ ${ldrAnswer,,} == "y" ]]; then
-					ldrInstallPackage "libncursesw5-dev"
 					echo "[${green}${bold}O${normal}] Installing package 'libncursesw5-dev', please wait, this may take some time."
+					ldrInstallPackage "libncursesw5-dev"
 				elif [[ ${ldrAnswer,,} == "n" ]]; then
 					echo "[${red}${bold}X${normal}] Stopping script, couldn't install dependencies."
 					exit 1
@@ -156,8 +156,8 @@ if [[ $distro == *"debian" || $distro == *"ubuntu" || $distro == *"mint" ]]; the
 					exit 1
 				fi
 			elif !$ldrMode; then
-				ldrInstallPackage "libncursesw5-dev"
 				echo "[${green}${bold}O${normal}] Installing package 'libncursesw5-dev', please wait, this may take some time."
+				ldrInstallPackage "libncursesw5-dev"
 			else
 				echo "[${red}${bold}X${normal}] Couldn't check install mode, stopping installation."
 				exit 1
@@ -211,7 +211,7 @@ ldrDlCompSauce
 
 echo -e "\n====================================\n"
 
-echo "[${green}${bold}O${normal}] Lander is ready to be played! type 'lander-game' to start!"
+echo "[${green}${bold}O${normal}] Lander is ready to be played!\n    type './lander-game' inside ${pwd}/lander to start!"
 
 rm -rf ldrLogs
 
