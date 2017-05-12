@@ -101,18 +101,18 @@ if [[ $distro == *"debian" || $distro == *"ubuntu" || $distro == *"mint" ]]; the
 
 		# ---------------------------------------------------------
 
-		# -------------------------- GCC --------------------------
+		# -------------------------- G++ --------------------------
 
-		echo "[${yellow}${bold}?${normal}] Checking GCC"
-		gcc --version &> /dev/null
-		ldrGCC=$?
-		if [[ $ldrGCC -eq 127 ]]; then
+		echo "[${yellow}${bold}?${normal}] Checking G++"
+		g++ --version &> /dev/null
+		ldrGPP=$?
+		if [[ $ldrGPP -eq 127 ]]; then
 			if $ldrMode; then
-				echo "[${red}${bold}X${normal}] GCC not found, do you want to install it using command 'sudo apt -y install gcc'? [Y/N]"
+				echo "[${red}${bold}X${normal}] G++ not found, do you want to install it using command 'sudo apt -y install g++'? [Y/N]"
 				read ldrAnswer < /dev/tty
 				if [[ ${ldrAnswer,,} == "y" ]]; then
-					echo "[${green}${bold}O${normal}] Installing package 'gcc', please wait, this may take some time."
-					ldrInstallPackage "gcc"
+					echo "[${green}${bold}O${normal}] Installing package 'g++', please wait, this may take some time."
+					ldrInstallPackage "g++"
 				elif [[ ${ldrAnswer,,} == "n" ]]; then
 					echo "[${red}${bold}X${normal}] Stopping script, couldn't install dependencies."
 					exit 1
@@ -121,16 +121,16 @@ if [[ $distro == *"debian" || $distro == *"ubuntu" || $distro == *"mint" ]]; the
 					exit 1
 				fi
 			elif !$ldrMode; then
-				echo "[${green}${bold}O${normal}] Installing package 'gcc', please wait, this may take some time."
-				ldrInstallPackage "gcc"
+				echo "[${green}${bold}O${normal}] Installing package 'g++', please wait, this may take some time."
+				ldrInstallPackage "g++"
 			else
 				echo "[${red}${bold}X${normal}] Couldn't check install mode, stopping installation."
 				exit 1
 			fi
-		elif [[ $ldrGCC -eq 0 ]]; then
-			echo "[${green}${bold}O${normal}] Package 'gcc' is already installed!"
+		elif [[ $ldrGPP -eq 0 ]]; then
+			echo "[${green}${bold}O${normal}] Package 'g++' is already installed!"
 		else
-			echo "[${red}${bold}X${normal}] Couldn't check dependency 'gcc', stopping installation."
+			echo "[${red}${bold}X${normal}] Couldn't check dependency 'g++', stopping installation."
 			exit 1
 		fi
 
@@ -213,7 +213,7 @@ function ldrDlCompSauce(){
 			exit 1
 		fi
 		cd lander
-		echo "[${green}${bold}O${normal}] Compiling source with GCC, please wait."
+		echo "[${green}${bold}O${normal}] Compiling source with G++, please wait."
 		make &> /dev/null
 		if [[ $? -eq 1 ]]; then
 			echo "[${red}${bold}X${normal}] Couldn't compile source, stopping installation."
