@@ -202,7 +202,12 @@ if [[ $distro == *"debian" || $distro == *"ubuntu" || $distro == *"mint" ]]; the
 		# ---------------------------------------------------------
 
 	}
+
+else
+	echo -e "[${red}${bold}X${normal}] This isntallation script is still not compatible with this distribution\n    Sorry... :'( You can try other installation methods."
+	exit 1
 fi
+
 
 function ldrDlCompSauce(){
 	if [[ ! $(ls | grep lander) ]]; then
