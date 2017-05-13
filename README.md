@@ -49,7 +49,7 @@ $ make
 $ ./lander_game
 ```
 
-### Plan C: Binary only (Not recommended)
+### Plan C: Binary only
 
 ```bash
 $ wget https://github.com/Capuno/Lander/releases/download/v1.0.0/lander_game
