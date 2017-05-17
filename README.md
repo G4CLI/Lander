@@ -32,11 +32,22 @@ Arch & based | `sudo pacman -S gcc`
 
 ### Plan A: Automatic
 
-The script is still under development.
+The script is still under development, currently working on Debian and Ubuntu, should work on Mint with a little modification on line 21, didn't have time to fix it myself, send PR pls im too lazy.
 
 ```bash
 $ curl https://raw.githubusercontent.com/Capuno/Lander/master/autoInstall.sh | bash
 ```
+
+[Maybe its better to download the script somewhere and then execute it:](https://www.seancassidy.me/dont-pipe-to-your-shell.html)
+
+```bash
+$ wget https://raw.githubusercontent.com/Capuno/Lander/master/autoInstall.sh
+$ md5sum autoInstall.sh
+$ chmod +x autoInstall.sh
+$ ./autoInstall.sh #Will install Lander in ${pwd}/lander
+```
+
+MD5 of the script = 01507fb4e4d3d65ed6c3ab4b2c1ca063 (checked in commit 620ca68c91039d1d4979a6f699b685ec9a1ad075)
 
 ### Plan B: Manual
 
