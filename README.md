@@ -1,7 +1,11 @@
 # Lander
 CLI Top-Down Space Shooter
 
+<div align=center>
+
 ![Main gif](http://i.imgur.com/70jvdo3.gif)
+
+</div>
 
 Lander is a top-down shooter made in C++
 
@@ -61,6 +65,9 @@ $ ./lander_game
 ```
 
 ### Plan C: Binary only
+
+Probably outdated... I don't think it's a good option, maybe only if you can't compile it for whatever reason.
+If you have problems compiling it, please open a new issue.
 
 ```bash
 $ wget https://github.com/Capuno/Lander/releases/download/v1.0.0/lander_game
